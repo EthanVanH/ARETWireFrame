@@ -1,20 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
+    <item android:title="Home"
+          android:id="@+id/nav_item_home"
+          />
     <item android:title="Account Info"
           android:id="@+id/nav_item_account"
           android:icon="@drawable/user"
           />
     <item android:title="Data Usage"
-        android:id="@+id/nav_item_data"
-        android:icon="@drawable/data"
-        />
+          android:id="@+id/nav_item_data"
+          android:icon="@drawable/data"
+          />
     <item android:title="Saved Crops"
-        android:id="@+id/nav_item_saved"
-        android:icon="@drawable/wheat"
-        />
+          android:id="@+id/nav_item_saved"
+          android:icon="@drawable/wheat"
+          />
     <item android:title="Settings"
-        android:id="@+id/nav_item_settings"
-        android:icon="@drawable/settings"
-        />
+          android:id="@+id/nav_item_settings"
+          android:icon="@drawable/settings"
+          />
 </menu>

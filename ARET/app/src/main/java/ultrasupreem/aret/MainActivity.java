@@ -37,6 +37,10 @@ public class MainActivity extends AppCompatActivity {
             public boolean onNavigationItemSelected(MenuItem menuItem) {
                 drawerLayout.closeDrawers();
 
+                if(menuItem.getItemId() == R.id.nav_item_home) {
+                    FragmentTransaction dfragmentTransaction = fragmentManager.beginTransaction();
+                    dfragmentTransaction.replace(R.id.containerView,new TabFragment()).commit();
+                }
                 if(menuItem.getItemId() == R.id.nav_item_account) {
                     //FragmentTransaction dfragmentTransaction = fragmentManager.beginTransaction();
                     //dfragmentTransaction.replace(R.id.containerView,new FRAGMENT2LOAD()).commit();
