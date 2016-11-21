@@ -2,6 +2,7 @@ package ultrasupreem.aret;
 
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
+import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v4.widget.DrawerLayout;
@@ -50,8 +51,8 @@ public class MainActivity extends AppCompatActivity {
                     //dfragmentTransaction.replace(R.id.containerView,new FRAGMENT2LOAD()).commit();
                 }
                 if(menuItem.getItemId() == R.id.nav_item_saved) {
-                    //FragmentTransaction dfragmentTransaction = fragmentManager.beginTransaction();
-                    //dfragmentTransaction.replace(R.id.containerView,new FRAGMENT2LOAD()).commit();
+                    FragmentTransaction dfragmentTransaction = fragmentManager.beginTransaction();
+                    dfragmentTransaction.replace(R.id.containerView,new CropFragment()).commit();
                 }
                 if(menuItem.getItemId() == R.id.nav_item_settings) {
                     //FragmentTransaction dfragmentTransaction = fragmentManager.beginTransaction();
@@ -68,5 +69,19 @@ public class MainActivity extends AppCompatActivity {
 
         drawerLayout.addDrawerListener(drawerToggle);
         drawerToggle.syncState();
+    }
+
+    public void replaceFragments(Class fragmentClass, Bundle bundle) {
+        Fragment fragment = null;
+        try {
+            fragment = (Fragment) fragmentClass.newInstance();
+            fragment.setArguments(bundle);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        // Insert the fragment by replacing any existing fragment
+        FragmentManager fragmentManager = getSupportFragmentManager();
+        fragmentManager.beginTransaction().replace(R.id.containerView, fragment)
+                .addToBackStack(null).commit();
     }
 }

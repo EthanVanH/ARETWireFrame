@@ -30,6 +30,9 @@ public class CropFragment extends ListFragment implements AdapterView.OnItemClic
 
     @Override
     public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-        Toast.makeText(getActivity(), "Item: " + i, Toast.LENGTH_SHORT).show();
+        Bundle bundle = new Bundle();
+        bundle.putString("title", "Carrot");
+        bundle.putString("body", "A long string of text that do not want to show all the time.A long string of text that do not want to show all the time.A long string of text that do not want to show all the time.A long string of text that do not want to show all the time.A long string of text that do not want to show all the time.");
+        ((MainActivity) getActivity()).replaceFragments(CropInfoFragment.class, bundle);
     }
 }
