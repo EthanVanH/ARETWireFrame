@@ -14,7 +14,7 @@ public class HomeFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.home_layout,null);
-
+        //expandable boxes
         final TextView headerText = (TextView) rootView.findViewById(R.id.detail_description_content);
         headerText.setText("Header  (see more ...)");
         final TextView showAll = (TextView) rootView.findViewById(R.id.detail_read_all);

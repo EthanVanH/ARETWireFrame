@@ -9,7 +9,7 @@
         android:layout_marginTop="40dp"
         android:textSize="30sp"
         android:gravity="center"
-        android:id="@+id/textView"
+        android:id="@+id/messageFragmentText"
         android:layout_centerHorizontal="true"
         android:textColor="@android:color/holo_red_light"
         android:text="Message\nFragment"/>

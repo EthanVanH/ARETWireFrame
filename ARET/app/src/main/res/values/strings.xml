@@ -1,5 +1,7 @@
 <resources>
     <string name="app_name">ARET</string>
+    <string name="email_default">Enter email address</string>
+    <string name="password_default">Enter password</string>
 
     <string-array name="Crops">
         <item>Sun</item>
