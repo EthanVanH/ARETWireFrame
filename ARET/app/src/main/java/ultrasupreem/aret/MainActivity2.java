@@ -11,9 +11,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 
-public class MainActivity extends AppCompatActivity {
-    User user;
-
+public class MainActivity2 extends AppCompatActivity {
     DrawerLayout drawerLayout;
     NavigationView navigationView;
     FragmentManager fragmentManager;
@@ -32,7 +30,7 @@ public class MainActivity extends AppCompatActivity {
         //inflate first fragment
         fragmentManager = getSupportFragmentManager();
         fragmentTransaction = fragmentManager.beginTransaction();
-        fragmentTransaction.replace(R.id.containerView, new LoginFragment()).commit();
+        fragmentTransaction.replace(R.id.containerView, new TabFragment()).commit();
 
         //setup drawer items (Navigation View)
         navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
@@ -64,6 +62,13 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        //drawer toggle
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        ActionBarDrawerToggle drawerToggle = new ActionBarDrawerToggle(this, drawerLayout, toolbar,
+                R.string.app_name, R.string.app_name);
+
+        drawerLayout.addDrawerListener(drawerToggle);
+        drawerToggle.syncState();
     }
 
     public void replaceFragments(Class fragmentClass, Bundle bundle) {
@@ -71,19 +76,6 @@ public class MainActivity extends AppCompatActivity {
         try {
             fragment = (Fragment) fragmentClass.newInstance();
             fragment.setArguments(bundle);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        // Insert the fragment by replacing any existing fragment
-        FragmentManager fragmentManager = getSupportFragmentManager();
-        fragmentManager.beginTransaction().replace(R.id.containerView, fragment)
-                .addToBackStack(null).commit();
-    }
-
-    public void replaceFragments(Class fragmentClass) {
-        Fragment fragment = null;
-        try {
-            fragment = (Fragment) fragmentClass.newInstance();
         } catch (Exception e) {
             e.printStackTrace();
         }

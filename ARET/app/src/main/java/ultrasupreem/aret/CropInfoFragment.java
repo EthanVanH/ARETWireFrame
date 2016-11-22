@@ -14,7 +14,7 @@ public class CropInfoFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View root = inflater.inflate(R.layout.crop_info_layout,null);
-
+        //puts the 2 passes strings on screen
         String title = getArguments().getString("title");
         TextView tvTitle = (TextView) root.findViewById(R.id.crop_title);
         tvTitle.setText(title);
