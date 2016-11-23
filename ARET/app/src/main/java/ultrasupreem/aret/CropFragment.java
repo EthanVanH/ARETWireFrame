@@ -11,6 +11,8 @@ import android.widget.ArrayAdapter;
 
 
 public class CropFragment extends ListFragment implements AdapterView.OnItemClickListener {
+    CropList cropList;
+
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -22,10 +24,17 @@ public class CropFragment extends ListFragment implements AdapterView.OnItemClic
     public void onActivityCreated(Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
 
+        getCropListfromDB();
+
         //this makes the list
-        ArrayAdapter arrayAdapter = ArrayAdapter.createFromResource(getActivity(), R.array.Crops, android.R.layout.simple_list_item_1);
+        ArrayAdapter<Crop> arrayAdapter = new ArrayAdapter<Crop>(this.getActivity(), android.R.layout.simple_list_item_1, cropList.crops);
         setListAdapter(arrayAdapter);
         getListView().setOnItemClickListener(this);
+    }
+
+    private void getCropListfromDB() {
+        cropList = new CropList();
+        //db stuff
     }
 
     @Override
