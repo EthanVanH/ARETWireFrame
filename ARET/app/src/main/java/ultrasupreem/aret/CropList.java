@@ -2,6 +2,8 @@ package ultrasupreem.aret;
 
 
 import org.json.*;
+
+import java.io.InputStream;
 import java.util.ArrayList;
 
 public class CropList {
@@ -11,7 +13,7 @@ public class CropList {
 
     }
 
-    public void parseCrops(String getResponse){ // should be a JSONObject
+    public void parseCrops(InputStream getResponse){ // should be a JSONObject
         try {
             JSONArray arr = getResponse.getJSONObject("Crop").getString("CropName");
         }
