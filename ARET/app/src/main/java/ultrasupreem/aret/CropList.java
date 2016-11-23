@@ -7,10 +7,10 @@ import java.io.InputStream;
 import java.util.ArrayList;
 
 public class CropList {
-    ArrayList<Crop> crops = new ArrayList<>();
+    ArrayList<Crop> crops;
 
     public CropList() {
-
+        crops = new ArrayList<>();
     }
 
     public void parseCrops(InputStream getResponse){ // should be a JSONObject

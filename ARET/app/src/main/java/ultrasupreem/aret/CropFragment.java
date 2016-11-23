@@ -1,5 +1,6 @@
 package ultrasupreem.aret;
 
+import android.os.StrictMode;
 import android.support.v4.app.ListFragment;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -40,6 +41,11 @@ public class CropFragment extends ListFragment implements AdapterView.OnItemClic
 
     private void getCropListfromDB() {
         cropList = new CropList();
+        if (android.os.Build.VERSION.SDK_INT > 9)
+        {
+            StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
+            StrictMode.setThreadPolicy(policy);
+        }
         //db stuff
         try {
             String url = "http://polls.apiblueprint.org/crops/";
