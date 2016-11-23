@@ -37,6 +37,8 @@ public class SignUpFragment extends Fragment implements OnClickListener {
 
     @Override
     public void onClick(View view) {
+
+
         switch (view.getId()) {
             case R.id.signup_button:
                 String firstname = ((EditText) getView().findViewById(R.id.firstname_signup)).getText().toString();
@@ -53,6 +55,7 @@ public class SignUpFragment extends Fragment implements OnClickListener {
                 } else {
                     Toast.makeText(getActivity(), "User already exists please login", Toast.LENGTH_LONG).show();
                 }
+                ((MainActivity) getActivity()).replaceFragments(TabFragment.class);
                 break;
             case R.id.login_switch_button:
                 ((MainActivity) getActivity()).replaceFragments(LoginFragment.class);
