@@ -50,7 +50,7 @@ public class SignUpFragment extends Fragment implements OnClickListener {
                 ((MainActivity) getActivity()).setUser(addUserToDB(firstname, lastname, username, password, region));
 
 
-                if (!((MainActivity)getActivity()).getUser().token) {
+                if (((MainActivity)getActivity()).getUser().token) {
                     ((MainActivity) getActivity()).replaceFragments(TabFragment.class);
                 } else {
                     Toast.makeText(getActivity(), "User already exists please login", Toast.LENGTH_LONG).show();
