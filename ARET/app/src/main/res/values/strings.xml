@@ -4,32 +4,15 @@
     <string name="password_default">Enter password</string>
 
     <string-array name="Crops">
-        <item>Sun</item>
-        <item>Mercury</item>
-        <item>Venus</item>
-        <item>Earth</item>
-        <item>Mars</item>
-        <item>Jupiter</item>
-        <item>Saturn</item>
-        <item>Uranus</item>
-        <item>Neptune</item>
-        <item>Sun</item>
-        <item>Mercury</item>
-        <item>Venus</item>
-        <item>Earth</item>
-        <item>Mars</item>
-        <item>Jupiter</item>
-        <item>Saturn</item>
-        <item>Uranus</item>
-        <item>Neptune</item>
-        <item>Sun</item>
-        <item>Mercury</item>
-        <item>Venus</item>
-        <item>Earth</item>
-        <item>Mars</item>
-        <item>Jupiter</item>
-        <item>Saturn</item>
-        <item>Uranus</item>
-        <item>Neptune</item>
+        <item>Tomato</item>
+        <item>Potato</item>
+        <item>Basil</item>
+        <item>Bok Choy</item>
+    </string-array>
+    <string-array name="CropDescriptions">
+        <item>Numerous varieties of tomato are widely grown in temperate climates across the world, with greenhouses allowing its production throughout the year and in cooler areas. The plants typically grow to 1–3 meters (3–10 ft) in height and have a weak stem that often sprawls over the ground and vines over other plants. It is a perennial in its native habitat, and grown as an annual in temperate climates. An average common tomato weighs approximately 100 grams (4 oz)</item>
+        <item>The potato is a starchy, tuberous crop from the perennial nightshade Solanum tuberosum. The word "potato" may refer either to the plant itself or to the edible tuber.[2] In the Andes, where the species is indigenous, there are some other closely related cultivated potato species. Potatoes were introduced outside the Andes region approximately four centuries ago,[3] and have since become an integral part of much of the world\'s food supply. It is the world\'s fourth-largest food crop, following maize, wheat, and rice.</item>
+        <item>Basil is possibly native to India,[4] and has been cultivated there for more than 5,000 years.[5] It was thoroughly familiar to the Greek authors Theophrastus[6] and Dioscorides. It is a hardy annual plant, best known as a culinary herb prominently featured in Italian cuisine, and also plays a major role in Southeast Asian cuisines of Indonesia, Thailand, Malaysia, Vietnam, Cambodia, Laos, and Taiwan. Depending on the species and cultivar, the leaves may taste somewhat like anise, with a strong, pungent, often sweet smell.</item>
+        <item>Bok choy or pak choi (Chinese: 青菜; Brassica rapa subsp. chinensis) is a type of Chinese cabbage. Chinensis varieties do not form heads and have smooth, dark green leaf blades instead, forming a cluster reminiscent of mustard greens or celery. Chinensis varieties are popular in southern China and Southeast Asia. Being winter-hardy, they are increasingly grown in Northern Europe. </item>
     </string-array>
 </resources>

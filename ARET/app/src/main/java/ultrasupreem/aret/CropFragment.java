@@ -8,8 +8,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
+import android.widget.Toast;
 
-import java.io.IOException;
 import java.io.InputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
@@ -17,6 +18,8 @@ import java.net.URL;
 
 public class CropFragment extends ListFragment implements AdapterView.OnItemClickListener {
     CropList cropList;
+    ArrayAdapter cropArray;
+    ArrayAdapter cropDescriptionArray;
 
     @Nullable
     @Override
@@ -29,15 +32,35 @@ public class CropFragment extends ListFragment implements AdapterView.OnItemClic
     public void onActivityCreated(Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
 
-       // getCropListfromDB();
+       if(!getCropListfromDB())
+       {
+           makeSomeBullshitCropList();
+       }
+       else
+       {
+           //this makes the lis
+           ArrayAdapter<Crop> arrayAdapter = new ArrayAdapter<Crop>(this.getActivity(), android.R.layout.simple_list_item_1, cropList.crops);
+           setListAdapter(arrayAdapter);
+       }
 
-        //this makes the list
-       // ArrayAdapter<Crop> arrayAdapter = new ArrayAdapter<Crop>(this.getActivity(), android.R.layout.simple_list_item_1, cropList.crops);
-        //setListAdapter(arrayAdapter);
         getListView().setOnItemClickListener(this);
     }
 
-    private void getCropListfromDB() {
+    /**
+     * This method is called if the fucking database doesn't do shit
+     */
+    public void makeSomeBullshitCropList()
+    {
+        cropArray = ArrayAdapter.createFromResource(getActivity(), R.array.Crops, android.R.layout.simple_list_item_1);
+        setListAdapter(cropArray);
+        getListView().setOnItemClickListener(this);
+    }
+
+    /**
+     *
+     * @return true or false depending on if the fucking database does shit
+     */
+    private boolean getCropListfromDB() {
         cropList = new CropList();
         if (android.os.Build.VERSION.SDK_INT > 9)
         {
@@ -57,21 +80,25 @@ public class CropFragment extends ListFragment implements AdapterView.OnItemClic
             cropList.parseCrops(response);
 
         }
-        catch (IOException e){
+        catch (Exception e){
             //OH LOOK THE DATABASE DOESNT EXIST FUCKING SURPRISE
             InputStream noResponse = null;
             cropList.parseCrops(noResponse);
+            return false;
         }
+
+        return true;
     }
 
     @Override
     public void onItemClick(AdapterView<?> adapter, View view, int position, long id) {
         //this changes the fragment to the 'crop info' one and sends 2 strings to be shown.
-        Crop c = (Crop) adapter.getItemAtPosition(position);
-
+        Toast.makeText(getActivity(), "Item: " + position, Toast.LENGTH_SHORT).show();
         Bundle bundle = new Bundle();
-        bundle.putString("title", c.name);
-        bundle.putString("body", c.description);
+        bundle.putString("title", cropArray.getItem(position).toString());
+        cropDescriptionArray = ArrayAdapter.createFromResource(getActivity(), R.array.CropDescriptions, android.R.layout.simple_list_item_1);
+        setListAdapter(cropDescriptionArray);
+        bundle.putString("body", cropDescriptionArray.getItem(position).toString());
         ((MainActivity) getActivity()).replaceFragments(CropInfoFragment.class, bundle);
     }
 }
