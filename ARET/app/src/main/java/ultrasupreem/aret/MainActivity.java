@@ -27,10 +27,12 @@ public class MainActivity extends AppCompatActivity {
         //navigationView setup
         navigationView = (NavigationView) findViewById(R.id.navigationView);
 
+
         //inflate first fragment
         fragmentManager = getSupportFragmentManager();
         fragmentTransaction = fragmentManager.beginTransaction();
         fragmentTransaction.replace(R.id.containerView, new LoginFragment()).commit();
+
 
         //setup drawer items (Navigation View)
         navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
