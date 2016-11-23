@@ -55,6 +55,8 @@ public class CropFragment extends ListFragment implements AdapterView.OnItemClic
         }
         catch (IOException e){
             //OH LOOK THE DATABASE DOESNT EXIST FUCKING SURPRISE
+            InputStream noResponse = null;
+            cropList.parseCrops(noResponse);
         }
     }
 

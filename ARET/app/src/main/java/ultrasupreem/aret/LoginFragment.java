@@ -10,6 +10,11 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import java.io.IOException;
+import java.io.InputStream;
+import java.net.HttpURLConnection;
+import java.net.URL;
+
 public class LoginFragment extends Fragment implements OnClickListener {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -50,6 +55,26 @@ public class LoginFragment extends Fragment implements OnClickListener {
      */
     private User checkDBForUser(String username, String password) {
         //db stuff
+
+        try {
+            String url = "http://polls.apiblueprint.org/users/";
+
+            URL object = new URL(url);
+
+            HttpURLConnection connection = (HttpURLConnection) object.openConnection();
+            connection.setRequestMethod("GET");
+
+            InputStream response = connection.getInputStream();
+            //Somehow parse the response but it should never get there as i dont have a database
+            // This if statement must be changed from response != null
+            if (response != null){
+                User temp = new User();
+                return temp;
+            }
+        }
+        catch (IOException e){
+            //OH LOOK THE DATABASE DOESNT EXIST FUCKING SURPRISE
+        }
         return null;//user not found
     }
 }

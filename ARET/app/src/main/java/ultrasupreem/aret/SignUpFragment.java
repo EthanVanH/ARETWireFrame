@@ -12,6 +12,12 @@ import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
 
+import java.io.DataOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.net.HttpURLConnection;
+import java.net.URL;
+
 public class SignUpFragment extends Fragment implements OnClickListener {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -69,7 +75,26 @@ public class SignUpFragment extends Fragment implements OnClickListener {
      */
     private User addUserToDB(String firstname, String lastname, String username, String password, String region) {
         //db stuff
-        return null;
+        User temp = new User(firstname, lastname, username, password, region);
+        try {
+            String url = "http://polls.apiblueprint.org/users/";
+
+            URL object = new URL(url);
+
+            HttpURLConnection connection = (HttpURLConnection) object.openConnection();
+            connection.setRequestMethod("POST");
+            String urlParameters = "district="+region+"&first_name="+firstname+"&last_name="+lastname;
+
+            connection.setDoOutput(true);
+            DataOutputStream wr = new DataOutputStream(connection.getOutputStream());
+            wr.writeBytes(urlParameters);
+            wr.flush();
+            wr.close();
+        }
+        catch (IOException e){
+            //OH LOOK THE DATABASE DOESNT EXIST FUCKING SURPRISE
+        }
+        return temp;
     }
 
 
