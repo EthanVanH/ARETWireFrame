@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent" android:layout_height="match_parent"
     android:orientation="vertical" >
 
@@ -8,30 +9,55 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="30dp"
-        android:textSize="30sp"
+        android:textSize="20sp"
         android:gravity="center"
         android:id="@+id/messageFragmentText"
         android:layout_centerHorizontal="true"
         android:textColor="@android:color/holo_green_dark"
         android:text="Messaging"/>
 
-    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:tools="http://schemas.android.com/tools"
+
+    <LinearLayout
         android:orientation="horizontal"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:gravity="bottom">
+        android:layout_height="wrap_content"
+        android:gravity="bottom"
+        android:layout_width="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true">
 
 
         <EditText android:id="@+id/edit_message"
             android:layout_weight="1"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-             />
+            android:hint="@string/edit_message" />
+
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-             />
+            android:text="@string/button_send" />
     </LinearLayout>
+
+    <TextView
+        android:text="Hello Roy"
+        android:id="@+id/textView6"
+        android:layout_marginTop="12dp"
+        android:layout_below="@+id/messageFragmentText"
+        android:layout_alignParentStart="true"
+        android:layout_width="150dp"
+        android:layout_height="100dp"
+        android:textAppearance="@android:style/TextAppearance.Material.Medium"
+        android:textAlignment="center" />
+
+    <TextView
+        android:text="Hello Bob, how are we doing in terms of the crops being planted this year?"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:id="@+id/textView7"
+        android:layout_marginEnd="39dp"
+        android:layout_below="@+id/textView6"
+        android:layout_alignParentEnd="true"
+        android:textAppearance="@android:style/TextAppearance.Material.Medium" />
 
 </RelativeLayout>
