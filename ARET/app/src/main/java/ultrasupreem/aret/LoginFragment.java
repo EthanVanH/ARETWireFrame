@@ -92,6 +92,7 @@ public class LoginFragment extends Fragment implements OnClickListener {
             String searchString = "\"email\": " + "\"" + username +"\"";
             if(JSONTurd.contains(searchString))
             {
+                //don't give a shit about parsing rn
                 ((MainActivity)getActivity()).setUser(new User(null, username, null, null, null));
             }
             else

@@ -42,7 +42,7 @@ public class DataFragment extends Fragment implements OnClickListener {
         totalDataText.setText(totalData + "");
         TextView outOfText = (TextView)view.findViewById(R.id.outOfData);
 
-        outOfText.setText(totalData - usedData + "Remaining");
+        outOfText.setText(totalData - usedData + " Remaining");
 
         if(usedData <= 0){
             usedDataText.setText("No data used");
