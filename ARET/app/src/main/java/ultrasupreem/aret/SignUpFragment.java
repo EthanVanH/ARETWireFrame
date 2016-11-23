@@ -13,13 +13,16 @@ import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
 
+import java.io.BufferedReader;
 import java.io.DataOutputStream;
-import java.io.IOException;
 import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
 
 public class SignUpFragment extends Fragment implements OnClickListener {
+    private static final String url = "https://jhvisser.com/aret/users/?district=&crop=&first_name=&last_name=&limit=";
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View root = inflater.inflate(R.layout.signup_layout, null);
@@ -101,21 +104,31 @@ public class SignUpFragment extends Fragment implements OnClickListener {
         //db stuff
         User temp = new User(firstname, lastname, username, password, region);
         try {
-            String url = "http://polls.apiblueprint.org/users/";
-
             URL object = new URL(url);
 
-            HttpURLConnection connection = (HttpURLConnection) object.openConnection();
-            connection.setRequestMethod("POST");
-            String urlParameters = "district="+region+"&first_name="+firstname+"&last_name="+lastname;
 
+            HttpURLConnection connection = (HttpURLConnection) object.openConnection();
+            String urlParameters = "district="+region+"&crop=shit"+"&first_name="+firstname+"&last_name="+lastname+"&limit=1";
+
+            connection.setDoInput(true);
             connection.setDoOutput(true);
+
             DataOutputStream wr = new DataOutputStream(connection.getOutputStream());
             wr.writeBytes(urlParameters);
             wr.flush();
             wr.close();
+
+            InputStream is = connection.getInputStream();
+            BufferedReader rd = new BufferedReader(new InputStreamReader(is));
+            String line;
+            while((line = rd.readLine()) != null) {
+                System.out.println(line);
+                System.out.println('\r');
+            }
+            rd.close();
+
         }
-        catch (IOException e){
+        catch (Exception e){
             //OH LOOK THE DATABASE DOESNT EXIST FUCKING SURPRISE
         }
         return temp;

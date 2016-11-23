@@ -112,7 +112,7 @@ public class LoginFragment extends Fragment implements OnClickListener {
                 return temp;
             }*/
         }
-        catch (IOException e){
+        catch (Exception e){
             //OH LOOK THE DATABASE DOESNT EXIST FUCKING SURPRISE
         }
         return null;//user not found
