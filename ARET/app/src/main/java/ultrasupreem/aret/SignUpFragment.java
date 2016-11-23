@@ -8,7 +8,9 @@ import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.Toast;
 
 public class SignUpFragment extends Fragment implements OnClickListener {
     @Override
@@ -37,12 +39,35 @@ public class SignUpFragment extends Fragment implements OnClickListener {
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.signup_button:
+                String firstname = ((EditText) getView().findViewById(R.id.firstname_signup)).getText().toString();
+                String lastname = ((EditText) getView().findViewById(R.id.lastname_signup)).getText().toString();
+                String username = ((EditText) getView().findViewById(R.id.username_signup)).getText().toString();
+                String password = ((EditText) getView().findViewById(R.id.password_signup)).getText().toString();
+                String region = ((Spinner) getView().findViewById(R.id.region_spinner)).getSelectedItem().toString();
 
-                ((MainActivity) getActivity()).replaceFragments(TabFragment.class);
+                ((MainActivity) getActivity()).setUser(addUserToDB(firstname, lastname, username, password, region));
+
+
+                if (!((MainActivity)getActivity()).getUser().token) {
+                    ((MainActivity) getActivity()).replaceFragments(TabFragment.class);
+                } else {
+                    Toast.makeText(getActivity(), "User already exists please login", Toast.LENGTH_LONG).show();
+                }
                 break;
             case R.id.login_switch_button:
                 ((MainActivity) getActivity()).replaceFragments(LoginFragment.class);
                 break;
         }
     }
+
+
+    /*
+    returns null if user already exists in db or the new User that was added to the db
+     */
+    private User addUserToDB(String firstname, String lastname, String username, String password, String region) {
+        //db stuff
+        return null;
+    }
+
+
 }

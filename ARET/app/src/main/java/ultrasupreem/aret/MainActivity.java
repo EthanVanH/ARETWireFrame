@@ -12,7 +12,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 
 public class MainActivity extends AppCompatActivity {
-    User user;
+    User user = new User();
 
     DrawerLayout drawerLayout;
     NavigationView navigationView;
@@ -42,7 +42,7 @@ public class MainActivity extends AppCompatActivity {
 
                 if(menuItem.getItemId() == R.id.nav_item_home) {
                     FragmentTransaction dfragmentTransaction = fragmentManager.beginTransaction();
-                    dfragmentTransaction.replace(R.id.containerView,new TabFragment()).commit();
+                    dfragmentTransaction.replace(R.id.containerView,new TabFragment()).addToBackStack(null).commit();
                 }
                 if(menuItem.getItemId() == R.id.nav_item_account) {
                     //FragmentTransaction dfragmentTransaction = fragmentManager.beginTransaction();
@@ -50,15 +50,15 @@ public class MainActivity extends AppCompatActivity {
                 }
                 if(menuItem.getItemId() == R.id.nav_item_data) {
                     //FragmentTransaction dfragmentTransaction = fragmentManager.beginTransaction();
-                    //dfragmentTransaction.replace(R.id.containerView,new FRAGMENT2LOAD()).commit();
+                    //dfragmentTransaction.replace(R.id.containerView,new DataFragment()).commit();
                 }
                 if(menuItem.getItemId() == R.id.nav_item_saved) {
                     FragmentTransaction dfragmentTransaction = fragmentManager.beginTransaction();
-                    dfragmentTransaction.replace(R.id.containerView,new CropFragment()).commit();
+                    dfragmentTransaction.replace(R.id.containerView,new CropFragment()).addToBackStack(null).commit();
                 }
                 if(menuItem.getItemId() == R.id.nav_item_settings) {
-                    //FragmentTransaction dfragmentTransaction = fragmentManager.beginTransaction();
-                    //dfragmentTransaction.replace(R.id.containerView,new FRAGMENT2LOAD()).commit();
+                    FragmentTransaction dfragmentTransaction = fragmentManager.beginTransaction();
+                    dfragmentTransaction.replace(R.id.containerView,new notFoundFragment()).addToBackStack(null).commit();
                 }
                 return false;
             }
@@ -91,5 +91,17 @@ public class MainActivity extends AppCompatActivity {
         FragmentManager fragmentManager = getSupportFragmentManager();
         fragmentManager.beginTransaction().replace(R.id.containerView, fragment)
                 .addToBackStack(null).commit();
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User u) {
+        if (u==null) {
+            return;
+        } else {
+            user = u;
+        }
     }
 }
