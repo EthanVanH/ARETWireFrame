@@ -78,7 +78,7 @@
             android:id="@+id/region_spinner" />
     </LinearLayout>
     <Button
-        android:layout_width="wrap_content"
+        android:layout_width="230dp"
         android:layout_height="wrap_content"
         android:text="Sign Up"
         android:layout_below="@id/spinner_container"
@@ -86,37 +86,33 @@
         android:paddingRight="10dp"
         android:layout_marginTop="20dp"
         android:layout_centerHorizontal="true"
-        android:id="@+id/signup_button" />
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/or"
-        android:layout_below="@id/signup_button"
-        android:paddingLeft="10dp"
-        android:paddingRight="10dp"
-        android:layout_marginTop="20dp"
-        android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
-        android:gravity="center_horizontal"
-        android:text="OR"/>
+        android:id="@+id/signup_button"
+        android:background="@color/gold" />
+
     <Button
-        android:layout_width="wrap_content"
+        android:layout_width="230dp"
         android:layout_height="wrap_content"
         android:text="Login"
-        android:layout_below="@id/or"
         android:paddingLeft="10dp"
         android:paddingRight="10dp"
-        android:layout_marginTop="20dp"
-        android:layout_centerHorizontal="true"
-        android:id="@+id/login_switch_button" />
+        android:id="@+id/login_switch_button"
+        android:background="@color/gold"
+        android:layout_marginTop="11dp"
+        android:layout_below="@+id/signup_button"
+        android:layout_alignStart="@+id/signup_button" />
+
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/login_switch_button"
+
         android:paddingLeft="10dp"
         android:paddingRight="10dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="16dp"
         android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
         android:gravity="center_horizontal"
-        android:text="*All fields are required"/>
+        android:text="*All fields are required"
+        android:layout_below="@+id/login_switch_button"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="10dp" />
 
 </RelativeLayout>

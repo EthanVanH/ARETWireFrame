@@ -27,6 +27,7 @@
             android:clickable="true"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:icon="@drawable/tomato"
             android:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis tempor tellus orci. Mauris id vestibulum nisi. Vestibulum in magna maximus, condimentum diam non, maximus erat. Etiam efficitur ultrices nunc quis aliquet. Praesent scelerisque urna lectus, non congue felis vulputate nec. Nulla facilisi. In at purus erat. Proin pulvinar rutrum ullamcorper."
             android:textAppearance="?android:attr/textAppearanceMedium"
             android:visibility="gone"/>

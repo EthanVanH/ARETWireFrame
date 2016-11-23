@@ -3,6 +3,7 @@
 
     <item android:title="Home"
           android:id="@+id/nav_item_home"
+        android:icon="@drawable/home"
           />
     <item android:title="Account Info"
           android:id="@+id/nav_item_account"

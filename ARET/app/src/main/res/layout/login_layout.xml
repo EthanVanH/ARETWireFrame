@@ -13,6 +13,7 @@
         android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
         android:gravity="center_horizontal"
         android:text="LOGIN"/>
+
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -34,7 +35,7 @@
         android:inputType="textPassword"
         android:id="@+id/password_login" />
     <Button
-        android:layout_width="wrap_content"
+        android:layout_width="230dp"
         android:layout_height="wrap_content"
         android:text="Login"
         android:layout_below="@id/password_login"
@@ -42,7 +43,8 @@
         android:paddingRight="10dp"
         android:layout_marginTop="10dp"
         android:layout_centerHorizontal="true"
-        android:id="@+id/login_button" />
+        android:id="@+id/login_button"
+        android:background="@color/gold" />
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -55,7 +57,7 @@
         android:gravity="center_horizontal"
         android:text="OR"/>
     <Button
-        android:layout_width="wrap_content"
+        android:layout_width="230dp"
         android:layout_height="wrap_content"
         android:text="Sign Up"
         android:layout_below="@id/or"
@@ -63,6 +65,7 @@
         android:paddingRight="10dp"
         android:layout_marginTop="20dp"
         android:layout_centerHorizontal="true"
-        android:id="@+id/signup_switch_button" />
+        android:id="@+id/signup_switch_button"
+        android:background="@color/gold" />
 
 </RelativeLayout>

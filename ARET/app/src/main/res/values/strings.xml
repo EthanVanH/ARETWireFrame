@@ -2,6 +2,8 @@
     <string name="app_name">ARET</string>
     <string name="email_default">Enter email address</string>
     <string name="password_default">Enter password</string>
+    <string name="edit_message">Enter a message</string>
+    <string name="button_send">Send</string>
 
     <string-array name="Crops">
         <item>Tomato</item>
