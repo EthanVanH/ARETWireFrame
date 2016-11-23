@@ -1,13 +1,67 @@
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context="ultrasupreem.aret.DataFragment">
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/offwhite">
 
-    <!-- TODO: Update blank fragment layout -->
     <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-         />
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:textSize="30sp"
+        android:gravity="center"
+        android:id="@+id/dataFragmentText"
+        android:layout_centerHorizontal="true"
+        android:textColor="@color/grey"
+        android:text="Data Usage"/>
 
-</FrameLayout>
+    <TextView
+        android:text="Used Data"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/dataFragmentText"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="50dp"
+        android:layout_marginTop="72dp"
+        android:textColor="@color/grey"
+        android:id="@+id/usedDataText" />
+
+    <TextView
+        android:text="Total Data"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:id="@+id/textView3"
+        android:layout_below="@+id/usedDataText"
+        android:layout_alignEnd="@+id/usedDataText"
+        android:textColor="@color/grey"/>
+
+    <TextView
+        android:text="out of"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textView3"
+        android:layout_toEndOf="@+id/textView3"
+        android:layout_marginTop="19dp"
+        android:id="@+id/outOfData"
+        android:textColor="@color/grey"/>
+
+    <TextView
+        android:text="usedData"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/usedDataText"
+        android:layout_alignEnd="@+id/dataFragmentText"
+        android:id="@+id/usedData"
+        android:textColor="@color/grey"/>
+
+    <TextView
+        android:text="totalData"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/totalData"
+        android:layout_above="@+id/outOfData"
+        android:layout_alignStart="@+id/usedData"
+        android:textColor="@color/grey"/>
+
+
+</RelativeLayout>
