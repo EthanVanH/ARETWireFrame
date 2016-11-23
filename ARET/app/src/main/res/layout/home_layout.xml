@@ -7,8 +7,7 @@
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_marginTop="10dp"
-    android:layout_marginBottom="20dp">
+    android:layout_marginTop="10dp" >
     <LinearLayout
         android:id="@+id/detail_description_container"
         android:layout_width="match_parent"
@@ -27,14 +26,15 @@
             android:clickable="true"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="A long string of text that do not want to show all the time.A long string of text that do not want to show all the time.A long string of text that do not want to show all the time.A long string of text that do not want to show all the time.A long string of text that do not want to show all the time."
+            android:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis tempor tellus orci. Mauris id vestibulum nisi. Vestibulum in magna maximus, condimentum diam non, maximus erat. Etiam efficitur ultrices nunc quis aliquet. Praesent scelerisque urna lectus, non congue felis vulputate nec. Nulla facilisi. In at purus erat. Proin pulvinar rutrum ullamcorper."
             android:textAppearance="?android:attr/textAppearanceMedium"
             android:visibility="gone"/>
     </LinearLayout>
 </ScrollView>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_height="wrap_content"
+    android:layout_marginTop="20dp">
     <LinearLayout
         android:id="@+id/detail_description_container2"
         android:layout_width="match_parent"
@@ -53,9 +53,93 @@
             android:clickable="true"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="A long string of text that do not want to show all the time.A long string of text that do not want to show all the time.A long string of text that do not want to show all the time.A long string of text that do not want to show all the time.A long string of text that do not want to show all the time."
+            android:text="The Agricultural Research and Extension Trust (ARET), will on Friday 18th November, 2016 hold a Tobacco Symposium at Cross Roads Hotel in Lilongwe. The function is expected to start at 8: 30 a.m. in the morning.
+The theme for this year’s symposium is “Promoting Sustainable Production (STP) Compliant Technologies for Improved Productivity.”
+During the event, which will attract various stakeholders and collaborators in the tobacco industry, a number of concluded and upcoming tobacco technologies will be showcased.
+You are all invited!"
             android:textAppearance="?android:attr/textAppearanceMedium"
             android:visibility="gone"/>
     </LinearLayout>
 </ScrollView>
+    <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp">
+        <LinearLayout
+            android:id="@+id/detail_description_container3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="@drawable/customborder">
+
+            <TextView
+                android:id="@+id/detail_description_content3"
+                android:maxLines="5"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceMedium"/>
+            <TextView
+                android:id="@+id/detail_read_all3"
+                android:clickable="true"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="ARET provides ‘back-to-basics’ demand- driven extension services to tobacco farmers and other stakeholders to maximize returns on investment in tobacco production in Malawi. This is done through the Department of Extension and Specialist Services. To achieve its extension objectives ARET has strategically placed Extension Agents in tobacco producing areas of the country. Highly qualified and well experienced Subject Matter Specialists and Research Scientists provide technical support to the Extension Agents in extension and training, farm management, land husbandry, forestry, electronic and print media, tobacco agronomy, crop protection, and curing structures."
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:visibility="gone"/>
+        </LinearLayout>
+    </ScrollView>
+    <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp">
+        <LinearLayout
+            android:id="@+id/detail_description_container4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="@drawable/customborder">
+
+            <TextView
+                android:id="@+id/detail_description_content4"
+                android:maxLines="5"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceMedium"/>
+            <TextView
+                android:id="@+id/detail_read_all4"
+                android:clickable="true"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=" A core function of ARET is the development of technologies for use by tobacco farmers for the maximization of profit in their farming business. In this perspective, the goal is to develop technologies that would improve tobacco production in the country and to provide technical services and develop information systems that will help farmers solve their problems. Our research is demand driven and focuses on priority needs. Research is conducted at three research stations: Kandiya Research Station in Lilongwe, Mwimba Research Station in Kasungu and Kabwafu Experimental Station in Mzimba."
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:visibility="gone"/>
+        </LinearLayout>
+    </ScrollView>
+    <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp">
+        <LinearLayout
+            android:id="@+id/detail_description_container5"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="@drawable/customborder">
+
+            <TextView
+                android:id="@+id/detail_description_content5"
+                android:maxLines="5"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceMedium"/>
+            <TextView
+                android:id="@+id/detail_read_all5"
+                android:clickable="true"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Agricultural Research and Extension Trust (ARET) is Malawi’s premier institution in tobacco research and technology dissemination. It is primarily concerned with development and dissemination of tobacco technologies, as its activities are sanctioned and funded by tobacco growers."
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:visibility="gone"/>
+        </LinearLayout>
+    </ScrollView>
 </LinearLayout>

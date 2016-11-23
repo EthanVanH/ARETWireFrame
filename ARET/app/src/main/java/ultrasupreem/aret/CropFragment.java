@@ -1,17 +1,20 @@
 package ultrasupreem.aret;
 
+import android.os.StrictMode;
+import android.support.v4.app.ListFragment;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.support.v4.app.ListFragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
-
+import android.widget.ArrayAdapter;
 import java.io.IOException;
 import java.io.InputStream;
-import java.net.HttpURLConnection;
-import java.net.URL;
+import java.net.*;
+
+
+import java.net.URLConnection;
 
 
 public class CropFragment extends ListFragment implements AdapterView.OnItemClickListener {
@@ -28,16 +31,21 @@ public class CropFragment extends ListFragment implements AdapterView.OnItemClic
     public void onActivityCreated(Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
 
-//        getCropListfromDB();
+        getCropListfromDB();
 
         //this makes the list
-//        ArrayAdapter<Crop> arrayAdapter = new ArrayAdapter<Crop>(this.getActivity(), android.R.layout.simple_list_item_1, cropList.crops);
-  //      setListAdapter(arrayAdapter);
+        ArrayAdapter<Crop> arrayAdapter = new ArrayAdapter<Crop>(this.getActivity(), android.R.layout.simple_list_item_1, cropList.crops);
+        setListAdapter(arrayAdapter);
         getListView().setOnItemClickListener(this);
     }
 
     private void getCropListfromDB() {
         cropList = new CropList();
+        if (android.os.Build.VERSION.SDK_INT > 9)
+        {
+            StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
+            StrictMode.setThreadPolicy(policy);
+        }
         //db stuff
         try {
             String url = "http://polls.apiblueprint.org/crops/";
@@ -47,8 +55,8 @@ public class CropFragment extends ListFragment implements AdapterView.OnItemClic
             HttpURLConnection connection = (HttpURLConnection) object.openConnection();
             connection.setRequestMethod("GET");
 
-//            InputStream response = connection.getInputStream();
- //           cropList.parseCrops(response);
+            InputStream response = connection.getInputStream();
+            cropList.parseCrops(response);
 
         }
         catch (IOException e){
@@ -59,11 +67,13 @@ public class CropFragment extends ListFragment implements AdapterView.OnItemClic
     }
 
     @Override
-    public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+    public void onItemClick(AdapterView<?> adapter, View view, int position, long id) {
         //this changes the fragment to the 'crop info' one and sends 2 strings to be shown.
+        Crop c = (Crop) adapter.getItemAtPosition(position);
+
         Bundle bundle = new Bundle();
-        bundle.putString("title", "Carrot");
-        bundle.putString("body", "A long string of text that do not want to show all the time.A long string of text that do not want to show all the time.A long string of text that do not want to show all the time.A long string of text that do not want to show all the time.A long string of text that do not want to show all the time.");
+        bundle.putString("title", c.name);
+        bundle.putString("body", c.description);
         ((MainActivity) getActivity()).replaceFragments(CropInfoFragment.class, bundle);
     }
 }

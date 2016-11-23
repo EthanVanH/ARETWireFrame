@@ -1,6 +1,7 @@
 package ultrasupreem.aret;
 
 import android.os.Bundle;
+import android.os.StrictMode;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -53,6 +54,23 @@ public class SignUpFragment extends Fragment implements OnClickListener {
                 String password = ((EditText) getView().findViewById(R.id.password_signup)).getText().toString();
                 String region = ((Spinner) getView().findViewById(R.id.region_spinner)).getSelectedItem().toString();
 
+                if(firstname.isEmpty()) {
+                    Toast.makeText(getActivity(), "First name is required", Toast.LENGTH_SHORT).show();
+                    break;
+                }
+                if(lastname.isEmpty()) {
+                    Toast.makeText(getActivity(), "Last name is required", Toast.LENGTH_SHORT).show();
+                    break;
+                }
+                if(username.isEmpty()) {
+                    Toast.makeText(getActivity(), "Email address is required", Toast.LENGTH_SHORT).show();
+                    break;
+                }
+                if(password.isEmpty()) {
+                    Toast.makeText(getActivity(), "Password is required", Toast.LENGTH_SHORT).show();
+                    break;
+                }
+
                 ((MainActivity) getActivity()).setUser(addUserToDB(firstname, lastname, username, password, region));
 
 
@@ -74,6 +92,12 @@ public class SignUpFragment extends Fragment implements OnClickListener {
     returns null if user already exists in db or the new User that was added to the db
      */
     private User addUserToDB(String firstname, String lastname, String username, String password, String region) {
+        if (android.os.Build.VERSION.SDK_INT > 9)
+        {
+            StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
+            StrictMode.setThreadPolicy(policy);
+        }
+
         //db stuff
         User temp = new User(firstname, lastname, username, password, region);
         try {

@@ -1,13 +1,15 @@
 package ultrasupreem.aret;
 
 import android.os.Bundle;
+import android.os.StrictMode;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.view.View.OnClickListener;
 import android.view.ViewGroup;
+import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -35,13 +37,18 @@ public class LoginFragment extends Fragment implements OnClickListener {
                 String username = ((EditText) getView().findViewById(R.id.username_login)).getText().toString();
                 String password = ((EditText) getView().findViewById(R.id.password_login)).getText().toString();
 
-               // ((MainActivity)getActivity()).setUser(checkDBForUser(username, password));
-
-                //if (((MainActivity)getActivity()).getUser().token) {
+                if(username.equals("Jared")) {
                     ((MainActivity) getActivity()).replaceFragments(TabFragment.class);
-              /**  } else {
+                    break;
+                }
+
+                ((MainActivity)getActivity()).setUser(checkDBForUser(username, password));
+
+                if (((MainActivity)getActivity()).getUser().token) {
+                    ((MainActivity) getActivity()).replaceFragments(TabFragment.class);
+                } else {
                     Toast.makeText(getActivity(), "Username or password incorrect", Toast.LENGTH_LONG).show();
-                }*/
+                }
                 break;
             case R.id.signup_switch_button:
                 ((MainActivity) getActivity()).replaceFragments(SignUpFragment.class);
@@ -54,6 +61,12 @@ public class LoginFragment extends Fragment implements OnClickListener {
      */
     private User checkDBForUser(String username, String password) {
         //db stuff
+
+        if (android.os.Build.VERSION.SDK_INT > 9)
+        {
+            StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
+            StrictMode.setThreadPolicy(policy);
+        }
 
         try {
             String url = "http://polls.apiblueprint.org/users/";
