@@ -1,19 +1,17 @@
 package ultrasupreem.aret;
 
-import android.support.v4.app.ListFragment;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.v4.app.ListFragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
+
 import java.io.IOException;
 import java.io.InputStream;
-import java.net.*;
-
-
-import java.net.URLConnection;
+import java.net.HttpURLConnection;
+import java.net.URL;
 
 
 public class CropFragment extends ListFragment implements AdapterView.OnItemClickListener {
@@ -30,11 +28,11 @@ public class CropFragment extends ListFragment implements AdapterView.OnItemClic
     public void onActivityCreated(Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
 
-        getCropListfromDB();
+//        getCropListfromDB();
 
         //this makes the list
-        ArrayAdapter<Crop> arrayAdapter = new ArrayAdapter<Crop>(this.getActivity(), android.R.layout.simple_list_item_1, cropList.crops);
-        setListAdapter(arrayAdapter);
+//        ArrayAdapter<Crop> arrayAdapter = new ArrayAdapter<Crop>(this.getActivity(), android.R.layout.simple_list_item_1, cropList.crops);
+  //      setListAdapter(arrayAdapter);
         getListView().setOnItemClickListener(this);
     }
 
@@ -49,8 +47,8 @@ public class CropFragment extends ListFragment implements AdapterView.OnItemClic
             HttpURLConnection connection = (HttpURLConnection) object.openConnection();
             connection.setRequestMethod("GET");
 
-            InputStream response = connection.getInputStream();
-            cropList.parseCrops(response);
+//            InputStream response = connection.getInputStream();
+ //           cropList.parseCrops(response);
 
         }
         catch (IOException e){
