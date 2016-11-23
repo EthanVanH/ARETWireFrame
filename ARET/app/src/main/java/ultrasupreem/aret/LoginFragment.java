@@ -5,11 +5,10 @@ import android.os.StrictMode;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 import android.view.View.OnClickListener;
+import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.Toast;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -37,18 +36,13 @@ public class LoginFragment extends Fragment implements OnClickListener {
                 String username = ((EditText) getView().findViewById(R.id.username_login)).getText().toString();
                 String password = ((EditText) getView().findViewById(R.id.password_login)).getText().toString();
 
-                if(username.equals("Jared")) {
-                    ((MainActivity) getActivity()).replaceFragments(TabFragment.class);
-                    break;
-                }
+               // ((MainActivity)getActivity()).setUser(checkDBForUser(username, password));
 
-                ((MainActivity)getActivity()).setUser(checkDBForUser(username, password));
-
-                if (((MainActivity)getActivity()).getUser().token) {
+              //  if (((MainActivity)getActivity()).getUser().token) {
                     ((MainActivity) getActivity()).replaceFragments(TabFragment.class);
-                } else {
+               /* } else {
                     Toast.makeText(getActivity(), "Username or password incorrect", Toast.LENGTH_LONG).show();
-                }
+                }*/
                 break;
             case R.id.signup_switch_button:
                 ((MainActivity) getActivity()).replaceFragments(SignUpFragment.class);
