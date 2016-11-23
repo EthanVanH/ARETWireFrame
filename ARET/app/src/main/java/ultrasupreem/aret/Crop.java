@@ -6,9 +6,12 @@ public class Crop {
     String type;
     String description;
     String instruction;
-    String image;
-    public Crop () {
 
+    public Crop(String name, String type, String description, String instruction) {
+        this.name = name;
+        this.type = type;
+        this.description = description;
+        this.instruction = instruction;
     }
 
     @Override

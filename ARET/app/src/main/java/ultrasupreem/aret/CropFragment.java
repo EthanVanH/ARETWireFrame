@@ -59,11 +59,13 @@ public class CropFragment extends ListFragment implements AdapterView.OnItemClic
     }
 
     @Override
-    public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+    public void onItemClick(AdapterView<?> adapter, View view, int position, long id) {
         //this changes the fragment to the 'crop info' one and sends 2 strings to be shown.
+        Crop c = (Crop) adapter.getItemAtPosition(position);
+
         Bundle bundle = new Bundle();
-        bundle.putString("title", "Carrot");
-        bundle.putString("body", "A long string of text that do not want to show all the time.A long string of text that do not want to show all the time.A long string of text that do not want to show all the time.A long string of text that do not want to show all the time.A long string of text that do not want to show all the time.");
+        bundle.putString("title", c.name);
+        bundle.putString("body", c.description);
         ((MainActivity) getActivity()).replaceFragments(CropInfoFragment.class, bundle);
     }
 }
