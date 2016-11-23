@@ -35,9 +35,10 @@ public class SignUpFragment extends Fragment implements OnClickListener {
 
     @Override
     public void onClick(View view) {
+
+
         switch (view.getId()) {
             case R.id.signup_button:
-
                 ((MainActivity) getActivity()).replaceFragments(TabFragment.class);
                 break;
             case R.id.login_switch_button:
