@@ -1,6 +1,8 @@
 package ultrasupreem.aret;
 
 
+import org.json.JSONObject;
+
 import java.util.ArrayList;
 
 public class CropList {
@@ -8,5 +10,9 @@ public class CropList {
 
     public CropList() {
 
+    }
+
+    public void parseCrops(JSONObject getResponse){
+        
     }
 }

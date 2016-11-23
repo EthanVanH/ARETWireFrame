@@ -8,6 +8,12 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import java.io.IOException;
+import java.io.InputStream;
+import java.net.*;
+
+
+import java.net.URLConnection;
 
 
 public class CropFragment extends ListFragment implements AdapterView.OnItemClickListener {
@@ -35,6 +41,21 @@ public class CropFragment extends ListFragment implements AdapterView.OnItemClic
     private void getCropListfromDB() {
         cropList = new CropList();
         //db stuff
+        try {
+            String url = "http://polls.apiblueprint.org/crops/";
+
+            URL object = new URL(url);
+
+            HttpURLConnection connection = (HttpURLConnection) object.openConnection();
+            connection.setRequestMethod("GET");
+
+            InputStream response = connection.getInputStream();
+            cropList.parseCrops(response);
+
+        }
+        catch (IOException e){
+            //OH LOOK THE DATABASE DOESNT EXIST FUCKING SURPRISE
+        }
     }
 
     @Override
